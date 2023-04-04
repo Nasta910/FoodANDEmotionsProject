@@ -12,7 +12,6 @@ let cocktail1Moods = [];
 let cocktail2Moods = [];
 let cocktail3Moods = [];
 let participantsList = [];
-let TestArray = [];
 let cocktail1MoodsDuring = []
 let cocktail2MoodsDuring = []
 let cocktail3MoodsDuring = []
@@ -56,6 +55,8 @@ async function createPage(){
     d3.selectAll('[id="faceCocktail2"]').attr("class", averageCocktail2)
     d3.selectAll('[id="faceCocktail3"]').attr("class", averageCocktail3)
     emptyCocktail("#Cocktail1Content")
+    emptyCocktail("#Cocktail2Content")
+    emptyCocktail("#Cocktail3Content")
     getParticipants(emotionsData)
     
     getMoodsDuringCocktail(cocktail1Data, participantsList)
@@ -251,7 +252,7 @@ function getAverage(cocktailData){
 function emptyCocktail(cocktailID){
     d3.select(cocktailID).selectAll("path")
     .transition() // fade to green in 3 seconds
-    .duration(5000)
+    .duration(30000)
     .style("opacity", "0");
 }
 
