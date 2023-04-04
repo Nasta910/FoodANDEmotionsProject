@@ -1,0 +1,35 @@
+.Sad {
+    fill: #65DAFF;
+}
+
+.Neutral {
+    fill: #e2f5fa66;
+}
+
+.Angry {
+    fill: #FF0000;
+}
+
+.Surprised {
+    fill: #FA00FF;
+}
+
+.Disgusted {
+    fill: #00FF00;
+}
+
+.Scared {
+    fill: #CBCBC6;
+}
+
+.Happy {
+    fill: #FFFF00;
+}
+
+.test {
+    fill: #ff35ab;
+}
+
+body{
+    background-color: #fdfdfdec;
+}
