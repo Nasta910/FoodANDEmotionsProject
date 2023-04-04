@@ -251,8 +251,8 @@ function getAverage(cocktailData){
 
 function emptyCocktail(cocktailID){
     d3.select(cocktailID).selectAll("path")
-    .transition() // fade to green in 3 seconds
-    .duration(30000)
+    .transition() 
+    .duration(42000)
     .style("opacity", "0");
 }
 
