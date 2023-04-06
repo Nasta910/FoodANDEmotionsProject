@@ -1,3 +1,133 @@
+/*
+.Sad {
+    fill: #65DAFF;
+}
+
+.noselect {
+    -webkit-touch-callout: none;
+      -webkit-user-select: none;
+       -khtml-user-select: none;
+         -moz-user-select: none;
+          -ms-user-select: none;
+              user-select: none;
+          -webkit-tap-highlight-color: transparent;
+  }
+  
+  button.drink {
+      width: 150px;
+      height: 50px;
+      cursor: pointer;
+      border: 0px solid #5b3f69;
+      background: #34283b;
+      transition: 200ms;
+  }
+  
+  button.drink span {
+      position: absolute;
+      transform: translateX(-50%) translateY(-50%);
+      font-family: 'Berkshire Swash', cursive;
+      font-size: 30px;
+      color: #f0ecfc;
+      transition: 500ms;
+  }
+  
+  button.drink::before, button::after {
+      content: '';
+      position: absolute;
+      margin-left: -75px;
+      margin-top: -25px;
+      width: 140px;
+      height: 40px;
+      z-index: -1;
+  }
+  
+  button.drink::before {
+      border: 5px solid #7e5791;
+      transition: 200ms;
+  }
+  
+  button.drink::after {
+      border: 5px solid #b37ccf;
+      transition: 500ms;
+  }
+  
+  button.drink:hover {
+      border: 5px solid #5b3f69;
+  }
+  
+  button.drink:hover span {
+      letter-spacing: 4px;
+      font-size: 20px;
+  }
+  
+  button.drink:hover::before {
+      width: 150px;
+      height: 50px;
+      margin-left: -80px;
+      margin-top: -30px;
+  }
+  
+  button.drink:hover::after {
+      width: 160px;
+      height: 60px;
+      margin-left: -85px;
+      margin-top: -35px;
+  }
+  
+  button.drink:focus {
+      outline: none;
+  }
+
+.Neutral {
+    fill: #e2f5fa66;
+}
+
+.Angry {
+    fill: #FF0000;
+}
+
+.Surprised {
+    fill: #FA00FF;
+}
+
+.Disgusted {
+    fill: #00FF00;
+}
+
+.Scared {
+    fill: #CBCBC6;
+}
+
+.Happy {
+    fill: #FFFF00;
+}
+
+.test {
+    fill: #ff35ab ;
+}
+
+body{
+    background-color: #427070;
+}
+
+form#filterForm label, form#filterForm input {
+    width: 89%;
+}
+
+.buttonsBar {
+    text-align: center;
+    background-color: #468585;
+    width: 12%;
+    padding: 1%;
+    float: left;
+    height: 883px;
+}
+
+.buttonsBar button {
+    margin-top: 8%;
+}
+*/
+
 .Sad {
     fill: #65DAFF;
 }
@@ -27,9 +157,32 @@
 }
 
 .test {
-    fill: #ff35ab;
+    fill: #ff35ab ;
 }
 
 body{
-    background-color: #fdfdfdec;
+    background-color: #427070;
+    overflow-y: hidden;
+}
+
+form#filterForm label, form#filterForm input {
+    width: 10%;
+}
+
+.buttonsBar {
+    background-color: #468585;
+    width: 98%;
+    padding: 1%;
+    /* float: left; */
+    /* height: 883px; */
+}
+
+.buttonsBar button {
+    position: absolute;
+    top: 2.9%;
+    margin-left: 39%;
+}
+
+button#drinkButton {
+    left: 5%;
 }
