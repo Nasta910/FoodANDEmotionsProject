@@ -356,7 +356,3 @@ function showMoodChanges(moodSet, tableNumber, counter, averageMoodToReturn, coc
 }
 
 createPage();
-
-$("#Table3").on("click",function () {
-    window.location.href = "/Table3";
-});
