@@ -19,6 +19,8 @@ let averageMoodCocktail1;
 let averageMoodCocktail2;
 let averageMoodCocktail3;
 let filteredData = [];
+let timerAllTables = 78000;
+let timerSingleTable = 52000;
 
 async function fetchData(){
     emotionsData = await d3.csv("data/Casus_foodEmotions_data.csv");
@@ -69,19 +71,19 @@ async function createPage(){
     console.log(cocktail1Data)
     console.log(cocktail2Data)
     console.log(cocktail3Data)
-    averageMoodCocktail1 = getAverageMood(cocktail1Data);
-    averageMoodCocktail2 = getAverageMood(cocktail2Data);
-    averageMoodCocktail3 = getAverageMood(cocktail3Data);
-
-    d3.selectAll('[id="faceCocktail1"]').attr("class", averageMoodCocktail1)
-    d3.selectAll('[id="faceCocktail2"]').attr("class", averageMoodCocktail2)
-    d3.selectAll('[id="faceCocktail3"]').attr("class", averageMoodCocktail3)
+    
     getParticipants(filteredData)
     
     getMoodsDuringCocktail(cocktail1Data, participantsList)
     getMoodsDuringCocktail(cocktail2Data, participantsList)
     getMoodsDuringCocktail(cocktail3Data, participantsList)
-    
+    averageMoodCocktail1 = getMostFrequentValue(cocktail1MoodsDuring);
+    averageMoodCocktail2 = getMostFrequentValue(cocktail2MoodsDuring);
+    averageMoodCocktail3 = getMostFrequentValue(cocktail3MoodsDuring);
+
+    d3.selectAll('[id="faceCocktail1"]').attr("class", averageMoodCocktail1)
+    d3.selectAll('[id="faceCocktail2"]').attr("class", averageMoodCocktail2)
+    d3.selectAll('[id="faceCocktail3"]').attr("class", averageMoodCocktail3)
     
 }
 
@@ -93,23 +95,31 @@ function resetData(){
     let maxAge = document.getElementById('iMaxAgeInput').value
     let gender = String(document.getElementById('sGenderInput').value)
 
+    if (!minAge){
+        minAge = 0
+    }
+    if (!maxAge){
+        maxAge = 200
+    }
     putDataPerCocktail(Number(minAge), Number(maxAge), gender);
     
     console.log(cocktail1Data)
     console.log(cocktail2Data)
     console.log(cocktail3Data)
     if (cocktail3Data.length != 0){
-        averageMoodCocktail1 = getAverageMood(cocktail1Data);
-        console.log(averageMoodCocktail1);
-        averageMoodCocktail2 = getAverageMood(cocktail2Data);
-        averageMoodCocktail3 = getAverageMood(cocktail3Data);
+        getMoodsDuringCocktail(cocktail1Data, participantsList)
+        getMoodsDuringCocktail(cocktail2Data, participantsList)
+        getMoodsDuringCocktail(cocktail3Data, participantsList)
+
+        averageMoodCocktail1 = getMostFrequentValue(cocktail1MoodsDuring);
+        averageMoodCocktail2 = getMostFrequentValue(cocktail2MoodsDuring);
+        averageMoodCocktail3 = getMostFrequentValue(cocktail3MoodsDuring);
+        
         d3.selectAll('[id="faceCocktail1"]').attr("class", averageMoodCocktail1)
         d3.selectAll('[id="faceCocktail2"]').attr("class", averageMoodCocktail2)
         d3.selectAll('[id="faceCocktail3"]').attr("class", averageMoodCocktail3)
 
-        getMoodsDuringCocktail(cocktail1Data, participantsList)
-        getMoodsDuringCocktail(cocktail2Data, participantsList)
-        getMoodsDuringCocktail(cocktail3Data, participantsList)
+        
     }
     else{
         window.alert("No data found");
@@ -123,9 +133,9 @@ function resetData(){
 }
 
 function drinkAllCocktails(){
-    emptyCocktail(Cocktail1Content)
-    emptyCocktail(Cocktail2Content)
-    emptyCocktail(Cocktail3Content)
+    emptyCocktail(Cocktail1Content, timerAllTables)
+    emptyCocktail(Cocktail2Content, timerAllTables)
+    emptyCocktail(Cocktail3Content, timerAllTables)
     showMoodChanges(cocktail1MoodsDuring, "faceCocktail1", 0, averageMoodCocktail1, Cocktail1Content)
     showMoodChanges(cocktail2MoodsDuring, "faceCocktail2", 0, averageMoodCocktail2, Cocktail2Content)
     showMoodChanges(cocktail3MoodsDuring, "faceCocktail3", 0, averageMoodCocktail3, Cocktail3Content)    
@@ -133,15 +143,15 @@ function drinkAllCocktails(){
 
 function drinkCocktail(tableNumber){
     if(tableNumber == 1){
-        emptyCocktail(Cocktail1Content)
+        emptyCocktail(Cocktail1Content, timerSingleTable)
         showMoodChanges(cocktail1MoodsDuring, "faceCocktail1", 0, averageMoodCocktail1, Cocktail1Content)  
     }
     else if (tableNumber == 2){
-        emptyCocktail(Cocktail2Content)
+        emptyCocktail(Cocktail2Content, timerSingleTable)
         showMoodChanges(cocktail2MoodsDuring, "faceCocktail2", 0, averageMoodCocktail2, Cocktail2Content)  
     }
     else{
-        emptyCocktail(Cocktail3Content)
+        emptyCocktail(Cocktail3Content, timerSingleTable)
         showMoodChanges(cocktail3MoodsDuring, "faceCocktail3", 0, averageMoodCocktail3, Cocktail3Content)  
     }
 }
@@ -296,11 +306,11 @@ function getMostFrequentValue(data){
 
 }
 
-function emptyCocktail(cocktailID){
+function emptyCocktail(cocktailID, timer){
     d3.select(cocktailID).selectAll("path")
     .transition() 
-    .duration(42000)
-    .style("transform", "translate(0px, 44px)");
+    .duration(timer)
+    .style("transform", "translate(0px, 95px)");
 }
 
 function fillCocktail(cocktailID){
