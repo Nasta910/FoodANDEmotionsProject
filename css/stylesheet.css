@@ -173,11 +173,9 @@ form#filterForm label, form#filterForm input {
     background-color: #468585;
     width: 98%;
     padding: 1%;
-    /* float: left; */
-    /* height: 883px; */
 }
 
-.buttonsBar button {
+.buttonsBar button, .buttonsBar a {
     position: absolute;
     top: 2.9%;
     margin-left: 39%;
@@ -185,4 +183,8 @@ form#filterForm label, form#filterForm input {
 
 button#drinkButton {
     left: 5%;
+}
+
+a#returnToBar {
+    left: 12%;
 }
