@@ -175,16 +175,21 @@ form#filterForm label, form#filterForm input {
     padding: 1%;
 }
 
-.buttonsBar button, .buttonsBar a {
+.ButtonsBox {
+    width: 20%;
     position: absolute;
-    top: 2.9%;
-    margin-left: 39%;
+    left: 39%;
+    top: 3%;
 }
 
-button#drinkButton {
-    left: 5%;
+
+.ButtonsBox a {
+    background-color: #427070;
+    padding: 3%;
+    color: #fff;
+    text-decoration: none;
 }
 
-a#returnToBar {
-    left: 12%;
+.ButtonsBox a:hover {
+    cursor: pointer;
 }
