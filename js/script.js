@@ -365,7 +365,7 @@ function showMoodChanges(moodSet, tableNumber, counter, averageMoodToReturn, coc
                 moodsInCodes.push('#FA00FF');
               break;
               case "Scared":
-                moodsInCodes.push('#CBCBC6');
+                moodsInCodes.push('#000');
               break;
             case "Disgusted":
                 moodsInCodes.push('#00FF00');
