@@ -20,7 +20,7 @@ let averageMoodCocktail2;
 let averageMoodCocktail3;
 let filteredData = [];
 let timerAllTables = 78000;
-let timerSingleTable = 52000;
+let timerSingleTable = 60000;
 
 async function fetchData(){
     emotionsData = await d3.csv("data/Casus_foodEmotions_data.csv");
@@ -353,31 +353,32 @@ function showMoodChanges(moodSet, tableNumber, counter, averageMoodToReturn, coc
     moodSet.forEach(element => {
         switch(element) {
             case "Happy":
-                moodsInCodes.push('#FFFF00');
+                moodsInCodes.push('#008000');
               break;
             case "Sad":
-                moodsInCodes.push('#65DAFF');
+                moodsInCodes.push('#2d36d6');
               break;
             case "Angry":
-                moodsInCodes.push('#FF0000');
+                moodsInCodes.push('#d62d2d');
               break;
             case "Surprised":
-                moodsInCodes.push('#FA00FF');
+                moodsInCodes.push('#eded2d');
               break;
               case "Scared":
-                moodsInCodes.push('#000');
+                moodsInCodes.push('#d68a2d');
               break;
             case "Disgusted":
-                moodsInCodes.push('#00FF00');
+                moodsInCodes.push('#800080');
               break;
             default:
-                moodsInCodes.push('#e2f5fa66');
+                moodsInCodes.push('#8f8f8f');
           }
     });
       setTimeout(function() {   //  call a 3s setTimeout when the loop is called
         d3.selectAll('[id="'+tableNumber+'"]')
             .attr("class", null)
             // .attr("fill", "#CA9494")   //  your code here
+            .attr("class", moodSet[counter])
             .transition()
             .duration(1000)
             .attr("fill", moodsInCodes[counter])   //  your code here

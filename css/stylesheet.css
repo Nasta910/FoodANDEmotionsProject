@@ -129,31 +129,31 @@ form#filterForm label, form#filterForm input {
 */
 
 .Sad {
-    fill: #65DAFF;
+    fill: #2d36d6;
 }
 
 .Neutral {
-    fill: #e2f5fa66;
+    fill: #8f8f8f;
 }
 
 .Angry {
-    fill: #FF0000;
+    fill: #d62d2d;
 }
 
 .Surprised {
-    fill: #FA00FF;
+    fill: #eded2d;
 }
 
 .Disgusted {
-    fill: #00FF00;
+    fill: #800080;
 }
 
 .Scared {
-    fill: #CBCBC6;
+    fill: #d68a2d;
 }
 
 .Happy {
-    fill: #FFFF00;
+    fill: #008000;
 }
 
 .test {
@@ -208,4 +208,36 @@ form#filterForm label, form#filterForm input {
 .legenda img {
     width: 65%;
     margin-top: 12%;
+}
+
+.sadFaceExpression, .happyFaceExpression, .disgustedFaceExpression, .surprisedFaceExpression, .scaredFaceExpression, .neutralFaceExpression, .angryFaceExpression {
+    display: none;
+}
+
+.Sad .sadFaceExpression{
+    display: block;
+}
+
+.Happy .happyFaceExpression  {
+    display: block;
+}
+
+.Disgusted .disgustedFaceExpression {
+    display: block;
+}
+
+.Surprised .surprisedFaceExpression {
+    display: block;
+}
+
+.Scared .scaredFaceExpression {
+    display: block;
+}
+
+.Neutral .neutralFaceExpression{
+    display: block;
+}
+
+.Angry .angryFaceExpression {
+    display: block;
 }
