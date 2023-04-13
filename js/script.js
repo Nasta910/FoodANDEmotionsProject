@@ -73,7 +73,10 @@ async function createPage(){
     console.log(cocktail3Data)
     
     getParticipants(filteredData)
-    
+    console.log("Cocktail 1: "+ getAverageMood(cocktail1Data))
+    console.log("Cocktail 2: "+ getAverageMood(cocktail2Data))
+    console.log("Cocktail 3: "+ getAverageMood(cocktail3Data))
+
     getMoodsDuringCocktail(cocktail1Data, participantsList)
     getMoodsDuringCocktail(cocktail2Data, participantsList)
     getMoodsDuringCocktail(cocktail3Data, participantsList)
@@ -102,7 +105,9 @@ function resetData(){
         maxAge = 200
     }
     putDataPerCocktail(Number(minAge), Number(maxAge), gender);
-    
+    console.log("Cocktail 1: "+ getAverageMood(cocktail1Data))
+    console.log("Cocktail 2: "+ getAverageMood(cocktail2Data))
+    console.log("Cocktail 3: "+ getAverageMood(cocktail3Data))
     console.log(cocktail1Data)
     console.log(cocktail2Data)
     console.log(cocktail3Data)
@@ -266,7 +271,7 @@ function generalizeDataDuring(data){
 }
 
 function getAverageMood(cocktailData){
-    var Moods = []
+    var Moods = {Neutral: 0, Happy: 0, Sad: 0, Angry: 0, Surprised: 0, Scared: 0, Disgusted: 0}
     for (var i = 0; i < cocktailData.length; i++) {       
         var moodsOfEntry = {Neutral: 0, Happy: 0, Sad: 0, Angry: 0, Surprised: 0, Scared: 0, Disgusted: 0}
         moodsOfEntry.Neutral = Number(cocktailData[i].Neutral);
@@ -279,11 +284,34 @@ function getAverageMood(cocktailData){
 
         let highestMoodValue = Math.max(moodsOfEntry.Happy, moodsOfEntry.Sad, moodsOfEntry.Angry, moodsOfEntry.Surprised, moodsOfEntry.Scared, moodsOfEntry.Disgusted)
         let highestMood = Object.keys(moodsOfEntry).find(key => moodsOfEntry[key] === highestMoodValue);
-        Moods.push(highestMood);
+        //Moods.push(highestMood);
+        switch(highestMood) {
+            case "Happy":
+                Moods.Happy = Moods.Happy + 1;
+              break;
+            case "Sad":
+                Moods.Sad = Moods.Sad + 1;
+              break;
+            case "Angry":
+                Moods.Angry =  Moods.Angry + 1;
+              break;
+            case "Surprised":
+                Moods.Surprised = Moods.Surprised + 1;
+              break;
+              case "Scared":
+                Moods.Scared = Moods.Scared + 1;
+              break;
+            case "Disgusted":
+                Moods.Disgusted = Moods.Disgusted + 1;
+              break;
+            default:
+                Moods.Neutral = Moods.Neutral + 1;
+          }
     }
     
-    return(getMostFrequentValue(Moods))
+    console.log(Moods)
 }
+
 function getMostFrequentValue(data){
     var mf = 1;
     var m = 0;

@@ -193,3 +193,19 @@ form#filterForm label, form#filterForm input {
 .ButtonsBox a:hover {
     cursor: pointer;
 }
+
+.legenda {
+    width: 7%;
+    overflow: hidden;
+    float: left;
+}
+
+.svgBox {
+    overflow: hidden;
+    width: 85%;
+}
+
+.legenda img {
+    width: 79%;
+    margin-top: 12%;
+}
