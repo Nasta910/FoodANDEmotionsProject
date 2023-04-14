@@ -7,28 +7,38 @@
     <title>Food & Emotions - Table 1</title>
     <link rel="stylesheet" href="css/stylesheet.css">
     <script src="https://d3js.org/d3.v6.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Alike+Angular" />
+    <link rel="icon" type="image/x-icon" href="images/cocktail.ico">
 </head>
 <body>
     <script src="js/script.js" ></script>
-    <div class="buttonsBar">
+    <div class="topBar">
+        <div class="buttonsPart">
         <form id="filterForm">
-            <label for="minAge">Minimal Age</label>
-            <input type="number" name="iMinAgeInput" id="iMinAgeInput">
-            <label for="minAge">Maximal Age</label>
-            <input type="number" name="iMaxAgeInput" id="iMaxAgeInput">
+            <label for="Age">Ages</label>
+            <select id="iAgeGroupInput" name="iAgeGroupInput">
+                <option value="1">All ages</option>
+                <option value="2">18 - 25</option>
+                <option value="3">26 - 35</option>
+                <option value="4">36 - 45</option>
+                <option value="5">46+</option>
+            </select>
             <label for="gender">Gender</label>
             <select id="sGenderInput" name="sGender">
                 <option value="empty">Both</option>
                 <option value="M">Male</option>
                 <option value="F">Female</option>
             </select>
-        </form> 
-        <div class="ButtonsBox">
-            <a id="filterButton" onclick="resetData()"><span>Filter</span></a>
-            <a id="drinkButton" onclick="drinkCocktail(1)"><span>Drink Cocktail</span></a>
-            <a id="returnToBar" href="index.html"><span>Back to bar</span></a>
+            </form> 
+            <div class="ButtonsBox">
+                <a id="filterButton" onclick="resetData()"><span>Filter</span></a>
+                <a id="drinkButton" onclick="drinkCocktail(1)"><span>Drink Cocktail</span></a>
+            <a id="returnToBar" href="baroverview.html"><span>Back to bar</span></a>
+            </div>
         </div>
-            
+        <div class="pageTitle">
+            <h1>Do cocktails make you happy?</h1>
+        </div>
     </div>
     <div class="svgBox">
         <svg width="1489" height="890" viewBox="0 0 1489 890" fill="none" xmlns="http://www.w3.org/2000/svg">

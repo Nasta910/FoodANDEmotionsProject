@@ -94,10 +94,31 @@ function resetData(){
     d3.selectAll('[id="faceCocktail1"]').attr("class", null)
     d3.selectAll('[id="faceCocktail2"]').attr("class", null)
     d3.selectAll('[id="faceCocktail3"]').attr("class", null)
-    let minAge = document.getElementById('iMinAgeInput').value
-    let maxAge = document.getElementById('iMaxAgeInput').value
+    let ageGroup = document.getElementById('iAgeGroupInput').value    
     let gender = String(document.getElementById('sGenderInput').value)
-
+    let minAge;
+    let maxAge;
+    switch(ageGroup) {
+        case '2':
+            minAge = 18
+            maxAge = 25
+            break;
+        case '3':
+            minAge = 26
+            maxAge = 35
+            break;
+        case '4':
+            minAge = 36
+            maxAge = 45
+            break;
+        case '4':
+            minAge = 46
+            maxAge = 200
+            break;
+        default:
+            minAge = 0
+            maxAge = 200
+    }
     if (!minAge){
         minAge = 0
     }
