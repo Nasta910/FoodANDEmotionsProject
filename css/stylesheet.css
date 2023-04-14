@@ -193,6 +193,7 @@ form#filterForm label, form#filterForm input {
   overflow: hidden;
   float: left;
   color: #fff;
+  height: 279px;
 }
 
 .RightPart {
