@@ -19,7 +19,7 @@ let averageMoodCocktail1;
 let averageMoodCocktail2;
 let averageMoodCocktail3;
 let filteredData = [];
-let timerAllTables = 78000;
+let timerAllTables = 78500;
 let timerSingleTable = 60000;
 
 async function fetchData(){
@@ -159,6 +159,14 @@ function resetData(){
 }
 
 function drinkAllCocktails(){
+    d3.selectAll('#drinkButton')
+        .style("background-color", "#427070")
+        .style("box-shadow", "rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #427070 0 -3px 0 inset")
+        .style("color", "#fff")
+        setTimeout(function(){
+            
+            }, 37000);
+
     emptyCocktail(Cocktail1Content, timerAllTables)
     emptyCocktail(Cocktail2Content, timerAllTables)
     emptyCocktail(Cocktail3Content, timerAllTables)
@@ -411,6 +419,10 @@ function showMoodChanges(moodSet, tableNumber, counter, averageMoodToReturn, coc
         else{
             d3.selectAll('[id="'+tableNumber+'"]').attr("class", averageMoodToReturn)
             fillCocktail(cocktailId)
+            d3.selectAll('#drinkButton')
+                .style("background-color", "#FCFCFD")
+                .style("box-shadow", "rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset")
+                .style("color", "#427070")
         }
       },2500)
 }
