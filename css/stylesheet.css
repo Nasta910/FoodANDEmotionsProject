@@ -54,14 +54,6 @@ form#filterForm label, form#filterForm input {
     top: 3%;
 }
 
-
-.ButtonsBox a {
-    background-color: #427070;
-    /* padding: 3%; */
-    color: #fff;
-    text-decoration: none;
-}
-
 .ButtonsBox a:hover {
     cursor: pointer;
 }
@@ -118,7 +110,7 @@ form#filterForm label, form#filterForm input {
 * { font-family: "Alike Angular"}
 
 /* CSS */
-.ButtonsBox a {
+.ButtonsBox a, .infoButton a{
   align-items: center;
   appearance: none;
   background-color: #FCFCFD;
@@ -149,16 +141,16 @@ form#filterForm label, form#filterForm input {
   margin-top: -7%;
 }
 
-.ButtonsBox a:focus {
+.ButtonsBox a:focus, .infoButton a:focus{
   box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
 }
 
-.ButtonsBox a:hover {
+.ButtonsBox a:hover, .infoButton a:hover{
   box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
   transform: translateY(-2px);
 }
 
-.ButtonsBox a:active {
+.ButtonsBox a:active, .infoButton a:active {
   box-shadow: #D6D6E7 0 3px 7px inset;
   transform: translateY(2px);
 }
@@ -188,16 +180,17 @@ form#filterForm label, form#filterForm input {
 }
 
 .LeftPart, .RightPart {
-  width: 40%;
-  padding: 3%;
+  width: 34%;
+  padding: 2% 3%;
   overflow: hidden;
   float: left;
   color: #fff;
-  height: 279px;
+  height: 274px;
 }
 
 .RightPart {
     text-align: right;
+    width: 51%;
 }
 
 .svgIndex {
@@ -205,7 +198,7 @@ form#filterForm label, form#filterForm input {
 }
 
 g#openDoor {
-    visibility: none;
+    display: none;
 }
 
 a.doors:hover #closedDoor {
@@ -214,4 +207,17 @@ a.doors:hover #closedDoor {
 
 a.doors:hover #openDoor {
     display: block;
+}
+
+.infoButton {
+    width: 2.6%;
+    position: absolute;
+    margin-left: 94%;
+    top: 3%;
+}
+
+option, select {
+    background-color: #427070;
+    color: #fff;
+    border: none;
 }
