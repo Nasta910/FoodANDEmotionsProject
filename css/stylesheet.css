@@ -66,7 +66,8 @@ form#filterForm label, form#filterForm input {
 
 .svgBox {
     overflow: hidden;
-    width: 85%;
+    width: 83%;
+    float: left;
 }
 
 .legenda img {
@@ -220,4 +221,12 @@ option, select {
     background-color: #427070;
     color: #fff;
     border: none;
+}
+
+.sideTextBox {
+    overflow: hidden;
+    width: 13%;
+    color: #fff;
+    text-align: center;
+    padding-top: 2%;
 }
